@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Compass — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: checklist, platinum roadmap, missable warnings and cited guides.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Trophy Compass</h1>
+    <p class="subtitle">Every official trophy — tracker, platinum roadmap and cited guides. Works fully offline; your progress stays in this browser.</p>
+    <div class="progress-wrap" aria-label="Overall progress">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="progress-text" id="progress-text">Loading trophies…</p>
+    </div>
+    <p class="grade-counts" id="grade-counts"></p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button type="button" class="tab is-active" data-view="checklist">Checklist</button>
+  <button type="button" class="tab" data-view="roadmap">Roadmap to platinum</button>
+  <button type="button" class="tab" data-view="missables">Missables</button>
+  <button type="button" class="tab" data-view="sources">Sources</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view" aria-label="Trophy checklist">
+    <div class="toolbar" aria-label="Trophy filters and tools">
+      <div class="toolbar-row">
+        <label for="search-input">Search</label>
+        <input type="search" id="search-input" placeholder="Search name or description…" autocomplete="off">
+        <label for="grade-select">Grade</label>
+        <select id="grade-select">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+        <label for="kind-select">Kind</label>
+        <select id="kind-select">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="stranger">Strangers</option>
+          <option value="activity">Activities</option>
+          <option value="collectible">Collectibles</option>
+          <option value="combat">Combat</option>
+          <option value="crime">Crime</option>
+          <option value="exploration">Exploration</option>
+          <option value="money">Money</option>
+          <option value="completion">Completion</option>
+          <option value="misc">Other</option>
+        </select>
+        <label for="sort-select">Sort</label>
+        <select id="sort-select">
+          <option value="default">List order</option>
+          <option value="grade">Grade, then name</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+      <div class="toolbar-row" id="filter-chips" role="group" aria-label="Quick filters">
+        <button type="button" class="chip is-active" data-filter="all">All 55</button>
+        <button type="button" class="chip" data-filter="missable">Missable</button>
+        <button type="button" class="chip" data-filter="hidden">Hidden</button>
+        <button type="button" class="chip" data-filter="earned">Earned</button>
+        <button type="button" class="chip" data-filter="remaining">Still to earn</button>
+      </div>
+      <div class="toolbar-row tools-row">
+        <label class="spoiler-toggle"><input type="checkbox" id="spoiler-toggle"> Hide story spoilers until earned</label>
+        <span class="tools-spacer"></span>
+        <button type="button" id="share-button">Copy share link</button>
+        <button type="button" id="export-button">Export progress</button>
+        <button type="button" id="import-button">Import progress</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+        <button type="button" id="reset-button">Reset</button>
+      </div>
+      <p class="result-count" id="result-count"></p>
+    </div>
+    <div class="checklist-layout">
+      <div class="trophy-list" id="trophy-list" aria-label="Trophy checklist">
+        <p class="loading">Loading the trophy list…</p>
+      </div>
+      <aside class="detail" id="detail" aria-labelledby="detail-heading">
+        <h2 id="detail-heading">Trophy guide</h2>
+        <div class="detail-body" id="detail-body"><p class="detail-empty">Select a trophy to read its guide, steps and sources.</p></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-labelledby="roadmap-heading" hidden>
+    <h2 id="roadmap-heading">Roadmap to the platinum</h2>
+    <p class="roadmap-intro" id="roadmap-intro"></p>
+    <ol class="roadmap-steps" id="roadmap-steps"></ol>
+    <p class="roadmap-sources">Roadmap sources: PowerPyx, GameMapa, EGamers, Vice City Hustle, GTABase.</p>
+  </section>
+
+  <section id="view-missables" class="view" aria-labelledby="missable-heading" hidden>
+    <h2 id="missable-heading">Missables — what can you actually miss?</h2>
+    <div class="missable-banner" id="missable-banner"></div>
+    <h3>Windows to watch (not missable, but time-sensitive)</h3>
+    <ul id="watch-list"></ul>
+    <h3>What cannot be missed</h3>
+    <p id="cannot-miss"></p>
+  </section>
+
+  <section id="view-sources" class="view" aria-labelledby="sources-heading" hidden>
+    <h2 id="sources-heading">Sources &amp; method</h2>
+    <p>Names, descriptions and grades are the official list as PlayStation publishes it. Every guide on this page is written in our own words for this guide; the steps draw on the guides below and never copy their text. Where the guides disagree, or have not confirmed a step yet, the entry says so instead of inventing one.</p>
+    <ul class="source-list" id="source-list"></ul>
+    <h3>Still unconfirmed (the guides have not settled these yet)</h3>
+    <ul id="unconfirmed-list"></ul>
+  </section>
+
+  <section class="about">
+    <h2>About this guide</h2>
+    <p>An offline, open guide for GTA VI on PS5: 55 trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — 28 of them hidden until earned, 0 online, 1 possibly missable. This page loads nothing from the network: the trophy data ships with it, and source links open only when you follow them.</p>
+    <p class="fine-print">Grand Theft Auto and GTA are trademarks of Rockstar Games. This is an unofficial fan guide, not affiliated with Rockstar Games or Sony Interactive Entertainment. No Rockstar artwork or logo is used here.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Leonida Trophy Compass — an offline, open guide for GTA VI on PS5. 55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze. 0 online trophies.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
